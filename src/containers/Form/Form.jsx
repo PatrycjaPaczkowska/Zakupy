@@ -11,7 +11,16 @@ const Form = () => {
 
    const sendData = (e) => {
       e.preventDefault();
-      let items = text.split(") ");
+
+      const przecinek = text.search(',');
+
+      let splitChar = ") ";
+
+      if (przecinek > 0){
+         splitChar = ", ";
+      }
+      
+      let items = text.split(splitChar);
 
       dispatch({
          items,
@@ -21,15 +30,15 @@ const Form = () => {
       setText("");
 
    }
- const resetLocalStorage = (e) =>{
-    e.preventDefault();
+   const resetLocalStorage = (e) => {
+      e.preventDefault();
 
-    dispatch({
-       items: [],
-       type: 'ADD'
-    })
+      dispatch({
+         items: [],
+         type: 'ADD'
+      })
 
- }
+   }
    return (
       <FormStyle onSubmit={sendData}>
          <TextareaStyle placeholder="Wklej listę po przecinku" value={text} onChange={handleText}></TextareaStyle>

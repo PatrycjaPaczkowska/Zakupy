@@ -1,15 +1,28 @@
 import React, { useContext } from 'react';
-import Item from './Item';
-import { Context } from '../../Context';
 import styled from 'styled-components';
+import { Context } from '../../Context';
+import Item from './Item';
 
 const List = () => {
+   let listItems;
 
-   const {items, dispatch} = useContext(Context);
+   const { items, dispatch } = useContext(Context);
+   console.log(items);
 
-   const list = items[0]?.split(")");
+   const value = items.join("");
+   console.log(value);
 
-   const listItems = list?.map((item, id) => <Item key={id} value={item} />)
+   const isNawias = value.indexOf("(");
+   console.log(isNawias);
+
+
+   if (isNawias > 0) {
+      const list = items[0]?.split(")");
+      listItems = list.map((item, id) => <Item key={id} value={item} />);
+   } else {
+      listItems = items.map((item, id) => <Item key={id} value={item} />);
+   }
+
 
    return (
       <ListItemsStyle>
