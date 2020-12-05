@@ -4,25 +4,13 @@ import { Context } from '../../Context';
 import Item from './Item';
 
 const List = () => {
-   let listItems;
 
    const { items, dispatch } = useContext(Context);
-   console.log(items);
-
    const value = items.join("");
-   console.log(value);
 
-   const isNawias = value.indexOf("(");
-   console.log(isNawias);
+   const isParenthesis = value.indexOf("(");
 
-
-   if (isNawias > 0) {
-      const list = items[0]?.split(")");
-      listItems = list.map((item, id) => <Item key={id} value={item} />);
-   } else {
-      listItems = items.map((item, id) => <Item key={id} value={item} />);
-   }
-
+   const listItems = items.map((item, id) => ( item &&  <Item key={id} value={item} />));
 
    return (
       <ListItemsStyle>

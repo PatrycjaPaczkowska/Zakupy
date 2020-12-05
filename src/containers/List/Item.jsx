@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Item = ({ value }) => {
+const Item = ({ value, isParenthesis }) => {
    return (
-
       <Label>
-         <Input type="checkbox" /> {value}
+         <Input type="checkbox" /> {value}{isParenthesis && ')'}
       </Label>
    );
 }

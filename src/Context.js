@@ -5,13 +5,18 @@ export const Context = createContext();
 
 const ADD = 'ADD';
 const FETCH = 'FETCH';
-
-//Init value
-let itemsDef;
+const DELETE = 'DELETE';
 
 const changeStatus = (items, action) => {
-   console.log(action.items);
-   return itemsDef = action.items;
+   const newTab = items.concat(action.items);
+   return newTab;
+}
+
+const handleDelete = () => {
+   const newItemsTab = [];
+   localStorage.clear();
+
+   return [...newItemsTab];
 }
 
 const AppProvider = ({ children }) => {
@@ -23,6 +28,8 @@ const AppProvider = ({ children }) => {
             return changeStatus(items, action);
          case FETCH:
             return action.data;
+           case DELETE:
+              return handleDelete(); 
          default:
             throw new Error("No action was found in moneyReducer")
       }
