@@ -6,6 +6,7 @@ export const Context = createContext();
 const ADD = 'ADD';
 const FETCH = 'FETCH';
 const DELETE = 'DELETE';
+const DELETE_ONE = 'DELETE_ONE';
 
 const changeStatus = (items, action) => {
    const newTab = items.concat(action.items);
@@ -19,6 +20,17 @@ const handleDelete = () => {
    return [...newItemsTab];
 }
 
+// Function delete 
+const handleDeleteOne = (items, action) => {
+   const newItemsTab = items.filter( item => {
+      console.log("item" + item);
+      console.log("action" + action);
+      return item !== action;
+   })
+   return [...newItemsTab];
+}
+
+
 const AppProvider = ({ children }) => {
    //Reducer
    const dataReducer = (items, action) => {
@@ -28,10 +40,12 @@ const AppProvider = ({ children }) => {
             return changeStatus(items, action);
          case FETCH:
             return action.data;
-           case DELETE:
-              return handleDelete(); 
+         case DELETE:
+            return handleDelete();
+         case DELETE_ONE:
+            return handleDeleteOne(items, action.value); 
          default:
-            throw new Error("No action was found in moneyReducer")
+            throw new Error("No action was found in dataReducer")
       }
    }
 

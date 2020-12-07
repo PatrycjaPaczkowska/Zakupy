@@ -4,23 +4,24 @@ import { Context } from '../../Context';
 import Item from './Item';
 
 const List = () => {
-
+ // eslint-disable-next-line
    const { items, dispatch } = useContext(Context);
-   const value = items.join("");
 
-   const isParenthesis = value.indexOf("(");
-
-   const listItems = items.map((item, id) => ( item &&  <Item key={id} value={item} />));
+   const listItems = items.map((item, id) => ( item && <Item key={id} value={item} handlerDelButton={dispatch} />));
 
    return (
       <ListItemsStyle>
-         {listItems}
+         <p>Pozostało: {listItems.length} </p>
+         {listItems} 
       </ListItemsStyle>
    );
 }
 
 const ListItemsStyle = styled.section`
    width: 80%;
+   & > p {
+      margin: 20px 0;
+   }
 `;
 
 export default List;

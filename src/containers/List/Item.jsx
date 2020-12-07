@@ -1,10 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+const Item = ({ value, handlerDelButton }) => {
+   
+   const handleDeleteTask = () => {
+      handlerDelButton({
+         value,
+         type: 'DELETE_ONE'
+      });
+   }
 
-const Item = ({ value, isParenthesis }) => {
    return (
       <Label>
-         <Input type="checkbox" /> {value}{isParenthesis && ')'}
+         - {value}
+         <ButtonSmall onClick={handleDeleteTask}>Usuń</ButtonSmall>
       </Label>
    );
 }
@@ -15,9 +23,22 @@ const Label = styled.label`
    margin: 15px 0;
 `;
 
-const Input = styled.input`
+const Input = styled.p`
    font-size: 0.4rem;
    text-transform: capitalize;
+`;
+
+const ButtonSmall = styled.button`
+   background-color: white;
+     border-radius: 3px;
+     border: 0;
+     color: #2196F3;
+     box-shadow: 0 3px 5px 2px #0000002e;
+     cursor: pointer;
+     font-size: 0.8rem;
+     min-height: 20px;
+     padding: 5px 10px;
+     margin: 0 10px;
 `;
 
 export default Item;

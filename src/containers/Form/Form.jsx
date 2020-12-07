@@ -14,9 +14,9 @@ const Form = () => {
 
    const sendData = (e) => {
       e.preventDefault();
-      if (!ref.current) return;
+      if (!ref.current || !text) return;
 
-      const typeOfList = ref.current.typeOfList
+      const typeOfList = ref.current.typeOfList;
 
       let operator;
 
@@ -24,9 +24,9 @@ const Form = () => {
       if (typeOfList === 'diet') operator = ')';
 
       const notCleanTab = text.split(operator);
-      const listItems = notCleanTab.filter(item => item.length > 0);
+      const listItems = notCleanTab.filter(item => item.length > 1);
 
-   
+
       dispatch({
          items: listItems,
          type: 'ADD'
@@ -50,8 +50,7 @@ const Form = () => {
 
    return (
       <FormStyle onSubmit={sendData}>
-
-         <TextareaStyle placeholder="Wklej listę po przecinku" value={text} onChange={handleText}></TextareaStyle>
+         <TextareaStyle placeholder="Wklej listę po przecinku i zaznacz odpowiednią opcję:" value={text} onChange={handleText}></TextareaStyle>
          <RadioStyle onChange={setOption}>
             <label>
                <input
