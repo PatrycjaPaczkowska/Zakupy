@@ -28,6 +28,7 @@ const App = () => {
 }
 
 const ButtonToggle = styled.button`
+   outline: none;
 	align-self: baseline;
 	text-align: left;
 	border: none;
