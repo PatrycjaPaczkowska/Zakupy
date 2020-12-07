@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-const Item = ({ value, handlerDelButton }) => {
+const Item = ({ value, textToShow, handlerDelButton }) => {
    
    const handleDeleteTask = () => {
       handlerDelButton({
@@ -11,7 +11,7 @@ const Item = ({ value, handlerDelButton }) => {
 
    return (
       <Label>
-         - {value}
+         - {textToShow}
          <ButtonSmall onClick={handleDeleteTask}>Usuń</ButtonSmall>
       </Label>
    );

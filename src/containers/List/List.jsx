@@ -16,7 +16,7 @@ const List = () => {
          newText = item;
       }
       
-      return item && <Item key={id} value={newText} handlerDelButton={dispatch} />
+      return item && <Item key={id} value={item} textToShow={newText} handlerDelButton={dispatch} />
    });
 
    return (
