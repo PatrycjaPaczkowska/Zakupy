@@ -4,15 +4,25 @@ import { Context } from '../../Context';
 import Item from './Item';
 
 const List = () => {
- // eslint-disable-next-line
+   // eslint-disable-next-line
    const { items, dispatch } = useContext(Context);
 
-   const listItems = items.map((item, id) => ( item && <Item key={id} value={item} handlerDelButton={dispatch} />));
+   const listItems = items.map((item, id) => {
+      const isParenthesis = item.indexOf('(');
+      let newText;
+      if(isParenthesis > 0){
+         newText =`${item})`;
+      } else {
+         newText = item;
+      }
+      
+      return item && <Item key={id} value={newText} handlerDelButton={dispatch} />
+   });
 
    return (
       <ListItemsStyle>
          <p>Pozostało: {listItems.length} </p>
-         {listItems} 
+         {listItems}
       </ListItemsStyle>
    );
 }

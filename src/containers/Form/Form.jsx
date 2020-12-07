@@ -50,7 +50,7 @@ const Form = () => {
 
    return (
       <FormStyle onSubmit={sendData}>
-         <TextareaStyle placeholder="Wklej listę po przecinku i zaznacz odpowiednią opcję:" value={text} onChange={handleText}></TextareaStyle>
+         <TextareaStyle placeholder="Wklej listę po przecinku, lub bezpośrednio z pliku PDF od motywatora i zaznacz odpowiednią opcję:" value={text} onChange={handleText}></TextareaStyle>
          <RadioStyle onChange={setOption}>
             <label>
                <input

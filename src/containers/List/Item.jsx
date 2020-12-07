@@ -23,11 +23,6 @@ const Label = styled.label`
    margin: 15px 0;
 `;
 
-const Input = styled.p`
-   font-size: 0.4rem;
-   text-transform: capitalize;
-`;
-
 const ButtonSmall = styled.button`
    background-color: white;
      border-radius: 3px;
