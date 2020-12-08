@@ -18,6 +18,7 @@ const App = () => {
       <AppProvider>
          <div className="App">
             <section className="App-header">
+               <h1>Lista zakupów</h1>
                <ButtonToggle onClick={handleToggleVisibility}>{text}</ButtonToggle>
                {toggleVisibility ? <Form /> : null}
                <List />

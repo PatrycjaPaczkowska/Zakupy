@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 const Item = ({ value, textToShow, handlerDelButton }) => {
-   
+
    const handleDeleteTask = () => {
       handlerDelButton({
          value,
@@ -11,7 +11,7 @@ const Item = ({ value, textToShow, handlerDelButton }) => {
 
    return (
       <Label>
-         - {textToShow}
+         <input type="checkbox" /> {textToShow}
          <ButtonSmall onClick={handleDeleteTask}>Usuń</ButtonSmall>
       </Label>
    );
@@ -30,8 +30,8 @@ const ButtonSmall = styled.button`
      color: #2196F3;
      box-shadow: 0 3px 5px 2px #0000002e;
      cursor: pointer;
-     font-size: 0.8rem;
-     min-height: 20px;
+     font-size: 0.6rem;
+     min-height: 10px;
      padding: 5px 10px;
      margin: 0 10px;
 `;
