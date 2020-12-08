@@ -16,14 +16,13 @@ const App = () => {
 
    return (
       <AppProvider>
-         <div className="App">
-            <section className="App-header">
-               <h1>Lista zakupów</h1>
+         <AppStyle className="App">
+               <TitleStyle>Lista zakupów</TitleStyle>
                <ButtonToggle onClick={handleToggleVisibility}>{text}</ButtonToggle>
                {toggleVisibility ? <Form /> : null}
                <List />
-            </section>
-         </div>
+            
+         </AppStyle>
       </AppProvider>
    );
 }
@@ -39,6 +38,24 @@ const ButtonToggle = styled.button`
 	width: 80%;
 	margin: 0 auto 10px auto;
    text-shadow: 0 0 5px black;
+`;
+
+const AppStyle = styled.main`
+   text-align: center;
+   background-color: #282c34;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 5%;
+   font-size: calc(10px + 2vmin);
+   color: white;
+   min-height: 100vh;
+   overflow: hidden;
+`;
+
+const TitleStyle = styled.h1`
+   padding: 15px 0 35px;
+   font-weight: 400;
 `;
 
 export default App;

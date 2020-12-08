@@ -30,7 +30,7 @@ const List = () => {
 const ListItemsStyle = styled.section`
    width: 80%;
    & > p {
-      margin: 20px 0;
+      margin: 40px 0;
    }
 `;
 
