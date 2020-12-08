@@ -103,6 +103,7 @@ const RadioStyle = styled.section`
 
    & > label {
       margin: 5px 0;
+      cursor: pointer;
    }
 `;
 export default Form;
