@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Short Description
 I created this site for my own needs. Apart from the usual decimal list I needed a list sorted by brackets. This option is called "Od motywatora" because I copy it directly from a pdf file with a diet from Dietary Motivator https://motywatordietetyczny.pl/. 
 
+The application has only mobile version.
 The data is saved to localStorage.
 
 ## Technologies
